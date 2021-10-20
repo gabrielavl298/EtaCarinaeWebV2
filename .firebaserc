@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "etacarinae-e197e": {
+      "hosting": {
+        "EtaCarinaeWeb": [
+          "etacarinae-e197e"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "etacarinae-e197e"
+  }
+}

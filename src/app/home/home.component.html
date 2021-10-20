@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand">Eta Carinae</a>
+            <div *ngIf="auth.user | async as user; else showLogin" >
+                <button class="btn btn-danger" (click)="logout()">Logout</button>
+            </div>
+            <ng-template #showLogin>
+                <a href="register" class="navbar-brand" >Registrate / Entra</a>
+            </ng-template>
+        </div>
+        <br>
+
+        
+    </nav>
+    <div class="row" style="width: 100%; margin-top: 2%;" *ngIf="auth.user | async as user; else showComprobar">
+        <div class="col">
+            <div >
+                <h2 style="text-align: center;">Registrar nuevos productos</h2>
+                <br>
+                <form  action="" [formGroup]="productoForm" (ngSubmit)="OnSubmit()" class="form">
+                    <input required formControlName="nombre" name="nombre" type="text" placeholder="Nombre del Producto:" style="width:100%">
+                    <br>
+                    <br>
+                    
+                    <input required formControlName="descripcion" name="descripcion" type="text" id="descripcion"  placeholder="Descripcion" style="width:100%">
+                    <br>
+                    <br>
+                    <input required formControlName="precio" name="precio" type="number" id="precio"  placeholder="Precio:" style="width:100%" >
+                    <br>
+                    <br>
+                    <input required formControlName="titulo" name="titulo" type="text" id="titulo"  placeholder="Titulo" style="width:100%">
+                    <br>
+                    <br>
+                    <label class="file-label">
+                        <input class="file-input" type="file" name="resume">
+                      </label>
+                      <br>
+                      <br>
+                    <button style="width: 60%; margin-left: 20%; margin-right: 20%;" type="submit" class="btn btn-primary full" >Agregar Producto</button>
+                    <br><br>
+   
+                </form>
+            </div>
+        </div>
+        <div class="col">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Titulo</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Descripcion</th>
+                        <th scope="col">Precio</th>
+                        <th scope="col">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of filtro">
+                        <td>{{item.titulo}}</td>
+                        <td>{{item.nombre}}</td>
+                        <td>{{item.descripcion}}</td>
+                        <td>{{item.precio}}</td>
+                        
+                        <td><button (click)="ShowConfirm(item)" class="btn btn-danger">Borrar</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+    <ng-template #showComprobar>
+        <a href="register" class="navbar-brand" >Registrate para agregar nuevos productos</a>
+    </ng-template>
+    
+</body>
+</html>

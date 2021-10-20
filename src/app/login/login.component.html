@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div style="text-align: center; margin-top: 5%; " class="container-fluid">
+        <div style="margin-left: 10%; margin-right: 10%; background-color: aliceblue;" >
+            <h1>Ingresa</h1>
+            <hr>
+            
+        </div>
+        <div style="margin-left: 10%; margin-right: 10%; background-color: aliceblue;">
+            <label for="staticEmail" class="col-sm-2" >Email:</label>
+            <br>
+            <input type="text" class="form-control" [(ngModel)]="email" name="email" />
+            <br>
+            <label for="inputPassword" class="col-sm-2"  >Password: </label>
+            <br>
+            <input type="password" class="form-control" [(ngModel)]="pass" name="pass" />
+            <br>
+            <button class="btn btn-primary" (click)="customLogin()" >Ingresar</button>
+        </div>
+        
+    
+    </div>
+</body>
+</html>
