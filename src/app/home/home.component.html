@@ -41,8 +41,9 @@
                     <br>
                     <br>
                     <label class="file-label">
-                        <input class="file-input" type="file" name="resume">
+                        <input class="file-input" type="file" name="resume" accept=".png, .jpg" (change)="onUpload($event)">
                       </label>
+                      <input required formControlName="imageURL" name="imageURL" id="imageURL" type="text" [value] = "urlImage | async">
                       <br>
                       <br>
                     <button style="width: 60%; margin-left: 20%; margin-right: 20%;" type="submit" class="btn btn-primary full" >Agregar Producto</button>
